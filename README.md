@@ -1,116 +1,144 @@
-# Project_FIFA_MoneyBall
+# FIFA_21_MoneyBall
 
-![photo](https://github.com/Ironhack-Data-0621-Remote/Project_FIFA_MoneyBall/blob/main/Images/photo.jpg)
+![FIFA text](FIFA.jpeg)
 
-## The challenge
+## Objective
 
-Perform an end-to-end analysis putting into practice what you have learned so far. You will apply statistical or machine learning techniques and present your results to the class.
+Use a Linear Regression Model to predict the Value of FIFA players.
 
-### Possible Outcomes
+## Data
 
-- Rank players by market value.
-  
-- Highlight the top players for their outstanding performances over a discrete season.
-- Decide when to transfer a player.
-- Decide the best replacement for a transferred player.
+### Data Source
 
-> You might suggest your own outcomes. Check with instructional staff before committing to a new option.
+The dataset was provided by Ironhack instructional staff as part of the first project for my Data Analytics course.
+Dataframe: https://www.kaggle.com/ekrembayar/fifa-21-complete-player-dataset
 
-## Objectives
+### Shape of the Data
 
-- Ask interesting and thoughtful questions and find the data to answer them.
-  
-- Focus on improving in areas that are hard for you or learning more about something with which you feel comfortable.
-- Apply the statistical and machine learning techniques we have learned.
-- Create useful and clear graphs.
-- Present your insights in a thoughtful, clear, and accurate way.
+The datasat contains 10.125 rows and 107 columns.
 
-## Dataset
+### The Data
+1. Case Number
+2. Date
+3. Year
+4. Type
 
-In this project, you will use the provided [**fifa21_male2.csv**](https://github.com/Ironhack-Data-0621-Remote/Project_FIFA_MoneyBall/tree/main/Data) dataset.
+### Workflow
 
-[Here](https://www.kaggle.com/ekrembayar/fifa-21-complete-player-dataset?select=fifa21_male2.csv) details about the dataset can be found here as well. 
-
-This data set includes:
-
-1. **EA Sports FIFA 19 Game** data:
-
-    |   |   |
-    |---|---|
-    |  Player Name | Club of the Player   |
-    | League  | Position  |
-    | Pace  |  Shooting |
-    |  Passing | Dribbling  |
-    | Defending|Physical|
-    |||
+#### Load, First Review and Clean
 
 
-1. **Transfermarkt** extra info by player:
-
-    |   |   |
-    |---|---|
-    |  Date of Birth| Nationality   |
-    | Height  | Foot  |
-    | Day Joined the current club  |  Day of Contract End |
-    |  Market Value of the Player |  |
-    |||
+#### Deep Dive Python
 
 
-2. **Instagram and Facebook** data by player:
-
-   - Number of followers on Instagram
-   - Number of likes on Facebook of the club in which the player has a contract
-
-4. **ESPN FC** data from the past 5 years performance of each player
-
-   - **GS:** Games Started
-   - **SB:** Games Substituted
-   - **G:** Goals Scored
-   - **A:** Assists
-   - **SH:** Shots
-   - **SG:** Shots on Goal
-   - **FC:** Fouls Committed
-   - **FS:** Fouls Suffered
-   - **YC:** Yellow Cards
-   - **RC:** Red Cards
-
-## Instructions & Scope
-
-- You **CAN'T CODE** until your project is planned.
-  
-- Create a `*.gitignore*` file and include it in your repository.
-- You should include a linear regression question(s) on the data.
-
-## Deliverables
-
-- Repository with your workflow + documentation + code. This repository must contain:
-  
-  - README: it is mandatory to present the project. 
-    - What made you decide to do this project?
-    - Objetive 
-    - Used tools 
-    - Workflow
-    - Results and conlusions (this is not so obligatory, it is a more personal decision)
-
-    ⚠️ Readme will be the first thing that people will see from us. A person who knows nothing about this project should be able to read your readme and know what you have done. 
-
-- A SQL Database with the FIFA_MoneyBall, using the learned statements during the last weeks
-
-- A well-commented Jupyter notebook with your analysis.
-
-  ⚠️ Remember, you could use the markdown cells in jupyter!! 
-
-- The final dataset after all cleaning and transformations.
-
-- To send us your work... as always a pull request where in the comments leave us the link to your repo.
+#### Deep Dive Tableau
 
 
-## Tips & Tricks
+#### EDA
 
-- Organize yourself (don't get lost!). Respect deadlines.
-  
-- Ask for help but don't forget that Google is your friend.
-- Define a simple approach first. You never know how the data can betray you. :wink:
-- Document your work.
-- Learn about the problem and what research has been done before you.
-- Before making a graph, think about what you want to represent.
+
+#### Creating the Model
+
+
+#### Evaluating the Model
+
+
+### Conclusion
+
+![Alt Text](https://media2.giphy.com/media/Qwtw3GTvRg8LxKaUet/giphy.gif?cid=ecf05e47u9osjc1n30c9g0ord37ktiu96kgidz253dc6fq49&rid=giphy.gif)
+
+## Python Libraries
+- [pandas](https://pandas.pydata.org/)
+- [numpy](https://numpy.org/)
+- [seaborn](https://seaborn.pydata.org/)
+- [matplotlib](https://matplotlib.org/)
+- [statsmodels](https://www.statsmodels.org/stable/index.html)
+- [scipy](https://www.scipy.org/)
+- [sklearn](https://scikit-learn.org/stable/)
+
+
+OLD NOTES
+
+To understand the data I used several functions, some might not be displayed within my jupyter file.
+As I am personally not very familiar with FIFA jargon I had to spend a lot of time understanding what the different columns actually stand for.
+After understanding the data I was able to chose which columns I want to use for my analysis and prediction.
+
+### Cleaning the Data
+
+Before cleaning FIFA 21 dataset contains 107 columns and 17,125 rows
+
+### change format and rename
+all lower string
+spaces replaced with underscore
+clean up €,K,M formats from value, wage, release_clause and hits columns
+
+### drop columns
+I decided to drop following columns from the dataframe
+images/links: player_photo, club_logo, flag_photo
+gender: only one gender represented in the data
+position columns: to evaluate the value of the player I only considered the best position to be important
+
+### set player ID as index
+
+### add calculated columns
+I decided to add 2 rankings:
+- potential within best position
+- potential within age
+
+### null values
+check and deal with null and zero values
+
+After cleaning FIFA 21 dataset contains 28 columns and 17,125 rows
+
+### The prediction model
+my prediction model is greatly based on the end to end class we covered together during our Ironhack remote course
+
+### Summary of the results
+
+#### Quesiton 1: Does the foot make a difference in other player attributes?
+
+I wanted to start of with an easy analysis that does not involve to many complex parameters.
+My approach was to first compare all data based on the dominant foot of the players.
+I split this player attribute in two rows for better readability and added calculations to see the absolute and % difference between the performance´.
+The result was that there are actually attributes that seem to be higher for players that are right or left footed.
+Best example would be goalkeeping with 19 points difference (23%)
+
+#### Question 2: Who are the the 5 highest valued players within each 10 year age group?
+
+Within questions 2 and 3 I wanted to already dig deeper in the value of the player to gain a better understanding for my prediction model.
+First I wanted to know who are the 5 highest valued players within each 10 year age group.
+I created age_groups and applied them on a new column.
+Next I selected my data I wanted to have displayed in jupyter, followed by the grouping, sorting and resetting of the index.
+What can be seen in the data is a drop in value over the years. Also from 40 years on it is only goalkeepers within a high value.
+Which makes sense as most other positions retire a lot earlier. I guess because of injuries or higher physical pressure.
+
+#### Question 3: Who are the highest valued players per best position? (most expensive team)
+
+For the 3rd question I used the same approach but went for the highest valued player for each position.
+Here I gained further insights on the few clubs that own all the most valuable players. (I actually wanted to include this in my model but ran out of time)
+
+### Sources
+
+Dataframe: https://www.kaggle.com/ekrembayar/fifa-21-complete-player-dataset
+
+### List of libraries
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy.stats as stats
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
+from sklearn.preprocessing import Normalizer
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import OneHotEncoder, Normalizer, LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
+import math
+import warnings
+warnings.filterwarnings('ignore')
+>>>>>>> 94181690c2f8ac34f4e7f579b14d9989f0b25c35
